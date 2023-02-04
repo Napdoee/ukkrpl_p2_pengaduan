@@ -59,29 +59,31 @@
                                     <h5 class="card-title m-0">Mengajukan Laporan Pengaduan</h5>
                                 </div>
                                 <div class="card-body">
-                                    <h6 class="card-title">Special title treatment</h6>
-
                                     <p class="card-text">
-                                        With supporting text below as a natural lead-in to additionalcontent.
+                                        Website ini bertujuan untuk mengadukan laporan dari masyarakat untuk nantinya
+                                        akan ditanggapi oleh petugas, untuk mengadukan laporan kalian butuh mendaftarkan
+                                        akun sebagai masyarakat dan ikuti cara mengajukan laporan pengaduan nantinya
+                                        kalian dapat melihat daftar pengaduan.
                                     </p>
-
-                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    <?php if(!isset($_SESSION['status'])) : ?>
+                                    <p>Jika tidak memiliki akun segera daftarkan dibawah ini.</p>
+                                    <a href="register.php" class="btn btn-primary">Daftarkan akun masyarakat</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-
+                                    <h5 class="card-title">Cara mengajukan laporan pengaduan: </h5>
                                     <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's
-                                        content.
+                                        <li>Masukkan akun anda sebagai masyarakat</li>
+                                        <li>Masuk kehalaman pengaduan</li>
+                                        <li>Isi form pengaduan dengan benar dan jelas</li>
+                                        <li>Pastikan disertai dengan bukti berupa foto</li>
                                     </p>
-
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
+                                    <!-- <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a> -->
                                 </div>
                             </div>
                         </div>

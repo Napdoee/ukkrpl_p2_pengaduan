@@ -67,8 +67,8 @@ class Database
         return $query;
     }
 
-    function pengaduan($nik, $isi, $foto){
-        $query = mysqli_query($this->connect, "call pengaduan('$nik', '$isi', '$foto')");
+    function pengaduan($nik, $judul, $isi, $foto){
+        $query = mysqli_query($this->connect, "call pengaduan('$nik', '$judul', '$isi', '$foto')");
 
         return $query;
     }

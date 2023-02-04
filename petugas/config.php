@@ -30,6 +30,9 @@ switch($page)
     case 'edit' :
         include 'edit.php';
         break;
+    case 'dashboard' :
+        include 'dashboard.php';
+        break;
     default :
         include "home.php";
 }

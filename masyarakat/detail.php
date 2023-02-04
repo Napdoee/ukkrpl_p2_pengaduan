@@ -38,19 +38,32 @@
                         <div class="card-title">Detail Pengaduan</div>
                         <div class="card-tools">
                             <?= $db->statusData($data['status']) ?>
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                <i class="fas fa-minus"></i>
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                    class="fas fa-minus"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div class="card-text">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="mb-2"><b><?= $user['nama'] ?></b></p>
-                                <p class="mb-2"><small><?= $data['tgl_pengaduan'] ?></small></p>
+                    <div class="card-body p-0">
+                        <div id="accordion">
+                            <div class="card shadow-none">
+                                <div class="card-header">
+                                    <a class="d-flex justify-content-between text-dark" data-toggle="collapse"
+                                        href="#collapseOne">
+                                        <div class="card-title">
+                                            <p class="mb-1 font-weight-bolder"><?= $data['judul_laporan'] ?></p>
+                                            <h6>Pelapor: <?= $user['nama'] ?></h6>
+                                        </div>
+                                        <div class="card-tools">
+                                            <small><?= $data['tgl_pengaduan'] ?></small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <?= $data['isi_laporan'] ?>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="mb-2">Isi Laporan: </p>
-                            <?= $data['isi_laporan'] ?>
                         </div>
                     </div>
                 </div>
@@ -85,8 +98,10 @@
                 </div>
             </div>
             <div class="col-6 text-center">
-                <img class="img-thumbnail img-rounded shadow-sm" src="../assets/image/<?= $data['foto'] ?>"
-                    alt="<?= $data['foto'] ?>">
+                <div style="max-height: 500px;" class="overflow-auto">
+                    <img style="width: 100%;" class="img-fluid img-rounded shadow-sm"
+                        src="../assets/image/<?= $data['foto'] ?>" alt="<?= $data['foto'] ?>">
+                </div>
             </div>
         </div>
     </div>

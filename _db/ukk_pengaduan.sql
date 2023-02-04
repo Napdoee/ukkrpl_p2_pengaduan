@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Feb 2023 pada 12.11
+-- Waktu pembuatan: 04 Feb 2023 pada 06.32
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -25,9 +25,9 @@ DELIMITER $$
 --
 -- Prosedur
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `pengaduan` (IN `uNik` VARCHAR(255), IN `uIsi` TEXT, IN `uFoto` VARCHAR(255))   BEGIN
-	INSERT INTO pengaduan(nik, isi_laporan, foto)
-    VALUES(uNik, uIsi, uFoto);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pengaduan` (IN `uNik` VARCHAR(255), IN `uJudul` VARCHAR(255), IN `uIsi` TEXT, IN `uFoto` VARCHAR(255))   BEGIN
+	INSERT INTO pengaduan(nik, judul_laporan, isi_laporan, foto)
+    VALUES(uNik, uJudul, uIsi, uFoto);
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `registrasi` (IN `uNik` VARCHAR(255), IN `uNama` VARCHAR(255), IN `uName` VARCHAR(255), IN `uPass` VARCHAR(255), IN `uTelp` VARCHAR(255))   BEGIN
@@ -70,7 +70,7 @@ CREATE TABLE `masyarakat` (
 --
 
 INSERT INTO `masyarakat` (`nik`, `nama`, `username`, `password`, `telp`) VALUES
-('0808', 'wiwi', 'wiwi', '38f2f8bb5145c0b899542570b91153f6', '62850180185'),
+('1815175101721511', 'wiwi', 'wiwi', '38f2f8bb5145c0b899542570b91153f6', '62850180185'),
 ('8157519275018275', 'Hidayat', 'dayat', '1855c11f044cc8944e8cdac9cae5def8', '082189575000');
 
 -- --------------------------------------------------------
@@ -83,6 +83,7 @@ CREATE TABLE `pengaduan` (
   `id_pengaduan` int(11) NOT NULL,
   `tgl_pengaduan` date NOT NULL DEFAULT current_timestamp(),
   `nik` char(16) NOT NULL,
+  `judul_laporan` varchar(255) DEFAULT NULL,
   `isi_laporan` text NOT NULL,
   `foto` varchar(255) NOT NULL,
   `status` enum('0','proses','selesai') NOT NULL DEFAULT '0'
@@ -92,9 +93,9 @@ CREATE TABLE `pengaduan` (
 -- Dumping data untuk tabel `pengaduan`
 --
 
-INSERT INTO `pengaduan` (`id_pengaduan`, `tgl_pengaduan`, `nik`, `isi_laporan`, `foto`, `status`) VALUES
-(8, '2023-01-29', '8157519275018275', 'dayat ganteng', '1674970104.jpg', 'selesai'),
-(10, '2023-01-29', '0808', 'halo', '1674989695.jpg', 'selesai');
+INSERT INTO `pengaduan` (`id_pengaduan`, `tgl_pengaduan`, `nik`, `judul_laporan`, `isi_laporan`, `foto`, `status`) VALUES
+(13, '2023-02-02', '8157519275018275', 'Perbaikan Jalanan Antang Raya', '<h6 class=\"\"><b><span style=\"font-family: &quot;Source Sans Pro&quot;;\">Perbaikan Jalanan Antang Raya</span></b></h6><h6 class=\"\" style=\"\"><u><span style=\"font-family: &quot;Source Sans Pro&quot;;\">Alasan Mengajukan:</span></u></h6><ul style=\"margin-bottom: 0px;\"><li style=\"text-align: left;\"><span style=\"font-family: &quot;Source Sans Pro&quot;;\">Sangat menggangu kenyaman berkendara</span></li><li style=\"text-align: left;\"><span style=\"font-family: &quot;Source Sans Pro&quot;;\">Kemacetan yang sangat padat</span></li><li style=\"text-align: left;\"><span style=\"font-family: &quot;Source Sans Pro&quot;;\">Banjir semakin meluas</span></li></ul>', '1675338792.jpg', 'selesai'),
+(14, '2023-02-03', '1815175101721511', 'Keributan yang terjadi disekitar pasar antang', '<p>Terdapat sekelompok anak muda yang melakukan aksi tawuran antara pelajar sekolah<br>2 Korban remaja yang mengakibatkan luka sayatan akibat terkena sajam</p><p><b>Permintaan dari masyarakat setempat</b></p><p>Diharapkan pemerintah dapat meminimalisirkan terjadinya tawuran antara pelajar agar tidak terjadi hal-hal yang lebih ekstrim dengan mengadakan sosialisasi di semua sekolah yang terlibat aksi tawuran.</p><p>Sekian dari kami.</p>', '1675340392.jpg', 'proses');
 
 -- --------------------------------------------------------
 
@@ -138,9 +139,9 @@ CREATE TABLE `tanggapan` (
 --
 
 INSERT INTO `tanggapan` (`id_tanggapan`, `id_pengaduan`, `tgl_tanggapan`, `tanggapan`, `id_petugas`) VALUES
-(7, 8, '2023-01-29', 'betul', 1),
-(8, 10, '2023-01-29', 'hai', 1),
-(13, 10, '2023-01-30', 'a', 1);
+(14, 13, '2023-02-02', 'Baik kami akan segera melakukan perbaikan jalan yang akan dijadwalkan pada bulan Januari 2023 mendatang, terimakasih atas laporannya.', 1),
+(15, 14, '2023-02-02', 'Kami ikut prihatin atas prilaku pelajar yang melakukan aksi tawuran, kami akan segera melakukan sosialisasi disekolah sekolah yang terlibat tawuran. Terimakasih atas laporannya', 1),
+(16, 13, '2023-02-04', 'Perbaikan jalanan antang raya telah selesai dilaksanakan.\r\n', 1);
 
 --
 -- Indexes for dumped tables
@@ -181,7 +182,7 @@ ALTER TABLE `tanggapan`
 -- AUTO_INCREMENT untuk tabel `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `petugas`
@@ -193,7 +194,7 @@ ALTER TABLE `petugas`
 -- AUTO_INCREMENT untuk tabel `tanggapan`
 --
 ALTER TABLE `tanggapan`
-  MODIFY `id_tanggapan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_tanggapan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

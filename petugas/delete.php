@@ -22,8 +22,8 @@
         }
     } else if(isset($_POST['pengaduan'])) {
         $id = $_POST['id_pengaduan'];
-        $query = $db->delete('pengaduan', 'id_pengaduan', $id);
         $data = $db->detailData('pengaduan', 'id_pengaduan', $id);
+        $query = $db->delete('pengaduan', 'id_pengaduan', $id);
         
         if($query){
             unlink("../assets/image/".$data['foto']);

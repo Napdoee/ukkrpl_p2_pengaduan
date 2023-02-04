@@ -23,12 +23,13 @@
             </div>
             <div class="table-responsive">
                 <table class="table">
-                    <thead>
+                    <thead class="text-nowrap">
                         <tr>
                             <th width="5%" class="text-center">#</th>
                             <th>NIK</th>
-                            <th>Nama</th>
+                            <!-- <th>Nama</th> -->
                             <th>Tanggal Pengaduan</th>
+                            <th>Judul Laporan</th>
                             <th>Isi Pengaduan</th>
                             <th>Status</th>
                             <th>Foto</th>
@@ -40,12 +41,13 @@
                         $query = $db->tampilData("pengaduan", "tgl_pengaduan");
                         if(!empty($query)) :
                         foreach($query as $val) :
-                        $data = $db->detailData("masyarakat", "nik", $val['nik'])?>
+                        // $data = $db->detailData("masyarakat", "nik", $val['nik'])?>
                         <tr>
                             <td class="text-center"><?= $no++ ?></td>
-                            <td><?= $data['nik'] ?> </td>
-                            <td><?= $data['nama'] ?></td>
+                            <td><?= $val['nik'] ?> </td>
+                            <!-- <td><?= $data['nama'] ?></td> -->
                             <td><?= $val['tgl_pengaduan'] ?></td>
+                            <td><?= $val['judul_laporan'] ?></td>
                             <td><?= $val['isi_laporan'] ?></td>
                             <td>
                                 <?= $db->statusData($val['status']) ?>

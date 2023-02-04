@@ -40,7 +40,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Dashboard</a>
+                    <a href="?page=dashboard" class="nav-link">Dashboard</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -160,8 +160,52 @@
     <script src="../assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="../assets/plugins/chart.js/Chart.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../assets/dist/js/adminlte.min.js"></script>
+
+    <script>
+    //--------------
+    //- AREA CHART -
+    //--------------
+
+    // Get context with jQuery - using jQuery's .get() method.
+    // var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+    <?php $data = $db->query("SELECT tgl_pengaduan as TglPengaduan, COUNT(*) as JmlPengaduan FROM `pengaduan` GROUP BY tgl_pengaduan;") ?>
+
+    var areaChartData = {
+        labels: [<?php foreach($data as $x) { echo '"'.$x['TglPengaduan'].'", '; } ?>],
+        datasets: [{
+            label: 'Data Pengaduan',
+            backgroundColor: 'rgba(60,141,188,0.9)',
+            borderColor: 'rgba(60,141,188,0.8)',
+            pointRadius: false,
+            pointColor: '#3b8bba',
+            pointStrokeColor: 'rgba(60,141,188,1)',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data: [<?php foreach($data as $x) { echo '"'.$x['JmlPengaduan'].'", '; } ?>]
+        }, ]
+    }
+
+    //-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+
+    var barChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        datasetFill: false
+    }
+
+    new Chart(barChartCanvas, {
+        type: 'bar',
+        data: areaChartData,
+        options: barChartOptions
+    })
+    </script>
 </body>
 
 </html>

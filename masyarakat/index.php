@@ -54,9 +54,11 @@
                 </ul>
             </div>
         </nav>
+
         <div class="content-wrapper">
             <?php include "config.php" ?>
         </div>
+
     </div>
 
     <!-- REQUIRED SCRIPTS -->
@@ -73,7 +75,19 @@
     <script>
     $(function() {
         // Summernote
-        $('#isi').summernote()
+        $('#isi').summernote({
+            placeholder: 'Isi Laporan',
+            tabsize: 2,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        })
     });
     </script>
 </body>
