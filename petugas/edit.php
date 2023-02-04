@@ -69,10 +69,11 @@
                     </div>
                     <?php elseif($act == 'masyarakat') : ?>
                     <input type="hidden" name="oldPassword" value="<?= $data['password'] ?>">
+                    <input type="hidden" name="nik" value="<?= $data['nik'] ?>">
                     <div class="form-group">
                         <label for="nik">NIK</label>
-                        <input type="number" class="form-control" name="nik" id="nik"
-                            placeholder="Masukkan Nomor Induk Keluarga" value="<?= $data['nik'] ?>" disabled>
+                        <input type="number" class="form-control" id="nik" placeholder="Masukkan Nomor Induk Keluarga"
+                            value="<?= $data['nik'] ?>" disabled>
                     </div>
                     <div class="form-group">
                         <label for="nama">Nama</label>
