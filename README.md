@@ -19,11 +19,10 @@ Sistem dibangun menggunakan PHP berbasis berorentiasi objek dengan menggunakan d
 
 #### 3. Jalankan project dengan *Apache* dan *MySQL*
 
-
 ## Screenshots
 
 #### Halaman Admin
-![SPP APP](https://i.imgur.com/XR43ceN.png)
+![SPP APP](https://i.imgur.com/2GNG9rP.png)
 
 #### Halaman Pengaduan
 ![SPP APP](https://i.imgur.com/IKY27mk.png)
