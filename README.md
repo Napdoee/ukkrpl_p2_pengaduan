@@ -22,7 +22,7 @@ Sistem dibangun menggunakan PHP berbasis berorentiasi objek dengan menggunakan d
 ## Screenshots
 
 #### Halaman Admin
-![SPP APP](https://i.imgur.com/2GNG9rP.png)
+![SPP APP](https://i.imgur.com/f3q94ok.png)
 
 #### Halaman Pengaduan
 ![SPP APP](https://i.imgur.com/IKY27mk.png)
