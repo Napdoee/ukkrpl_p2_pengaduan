@@ -20,6 +20,16 @@ Sistem dibangun menggunakan PHP berbasis berorentiasi objek dengan menggunakan d
 #### 3. Jalankan project dengan *Apache* dan *MySQL*
 
 
+## Users
+##### 1. Admin
+- Username: admin
+- Password: admin
+##### 2. Petugas
+- Username: wandi
+- Password: wandi
+##### 3. Masyarakat
+- Username: wiwi
+- Password: wiwi
 ## Screenshots
 
 #### Halaman Admin
@@ -30,3 +40,4 @@ Sistem dibangun menggunakan PHP berbasis berorentiasi objek dengan menggunakan d
 
 #### Detail Pengaduan
 ![SPP APP](https://i.imgur.com/AAPnlLg.png)
+
