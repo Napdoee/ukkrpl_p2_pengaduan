@@ -21,15 +21,13 @@ Sistem dibangun menggunakan PHP berbasis berorentiasi objek dengan menggunakan d
 
 
 ## Users
-##### 1. Admin
-- Username: admin
-- Password: admin
-##### 2. Petugas
-- Username: wandi
-- Password: wandi
-##### 3. Masyarakat
-- Username: wiwi
-- Password: wiwi
+
+| Level       | Username  | Password  |
+| ----------- | --------- | --------- |
+| Admin       | admin     | admin     |
+| Petugas     | wandi     | wandi     |
+| Masyarakat  | wiwi      | wiwi      |
+
 ## Screenshots
 
 #### Halaman Admin
