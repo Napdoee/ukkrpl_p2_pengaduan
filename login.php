@@ -13,9 +13,11 @@
 
 <body class="hold-transition login-page">
     <div class="login-box">
-        <div class="card">
-            <div class="card-body login-card-body">
-                <h4 class="mb-3"><i class="fas fa-solid fa-user"></i> Login User </h4>
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <h4>Pengaduan Masyarakat</h4>
+            </div>
+            <div class="card-body">
                 <form action="ceklogin.php" method="post">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="username" placeholder="Nama Pengguna" required>

@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -40,11 +44,13 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="?page=dashboard" class="nav-link">Dashboard</a>
+                    <a href="?page=dashboard" class="nav-link">Home</a>
                 </li>
             </ul>
+
+            <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item d-none d-sm-inline-block">
+                <li class="nav-item">
                     <a href="../logout.php" class="nav-link">Logout</a>
                 </li>
             </ul>
@@ -83,7 +89,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item">
-                            <a href="?page=home" class="nav-link">
+                            <a href="?page=pengaduan" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     Verifikasi Pengaduan
@@ -164,7 +170,24 @@
     <script src="../assets/plugins/chart.js/Chart.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../assets/dist/js/adminlte.min.js"></script>
-
+    <!-- DataTables  & Plugins -->
+    <script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script>
+    $(function() {
+        $("#example2").DataTable({
+            responsive: true,
+            lengthChange: true,
+            ordering: true,
+            paging: false,
+            info: false,
+            autoWidth: false,
+            searching: false,
+        });
+    });
+    </script>
     <script>
     //--------------
     //- AREA CHART -

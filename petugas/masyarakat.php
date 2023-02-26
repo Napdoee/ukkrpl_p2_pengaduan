@@ -26,7 +26,7 @@
 <div class="content">
     <div class="container">
         <div class="card">
-            <table class="table table-hover">
+            <table id="example2" class="table table-hover">
                 <thead>
                     <tr>
                         <th width="5%" class="text-center">#</th>

@@ -7,7 +7,7 @@
     <div class="container">
         <div class="card">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table id="example2" class="table table-hover">
                     <thead>
                         <tr>
                             <th width="5%" class="text-center">#</th>

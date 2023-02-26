@@ -6,29 +6,29 @@
 <div class="content">
     <div class="container">
         <div class="card">
-            <table class="table table-hover">
+            <table id="example2" class="table table-hover">
                 <thead>
                     <tr>
                         <th width="5%" class="text-center">#</th>
-                        <th>Nama Petugas</th>
-                        <th>ID Pengaduan</th>
-                        <th>Tanggal Tanggapan</th>
+                        <th>Petugas</th>
+                        <!-- <th>ID Pengaduan</th> -->
+                        <th>Tanggal</th>
                         <th>Tanggapan</th>
-                        <th class="text-center">Opsi</th>
+                        <th width="10%" class="text-center">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
-                    $no = 1; 
-                    $query = $db->tampilData("tanggapan", "tgl_tanggapan");
-                    if(!empty($query)) :
-                    foreach($query as $val) :
-                    $data = $db->detailData("petugas", "id_petugas", $val['id_petugas'])?>
+                        $no = 1; 
+                        $query = $db->tampilData("tanggapan", "tgl_tanggapan");
+                        if(!empty($query)) :
+                        foreach($query as $val) :
+                        $data = $db->detailData("petugas", "id_petugas", $val['id_petugas'])?>
                     <tr>
                         <td class="text-center align-middle"><?= $no++ ?></td>
                         <td class="align-middle"><?= $data['nama_petugas'] ?> (<?= $data['id_petugas'] ?>)</td>
-                        <td class="align-middle"><?= $val['id_pengaduan'] ?></td>
-                        <td class="align-middle"><?= $val['tgl_tanggapan'] ?></td>
+                        <!-- <td class="align-middle"><?= $val['id_pengaduan'] ?></td> -->
+                        <td class="align-middle text-nowrap"><?= $val['tgl_tanggapan'] ?></td>
                         <td class="align-middle"><?= $val['tanggapan'] ?></td>
                         <td class="text-center align-middle">
                             <form action="delete.php" method="post" class="d-inline">

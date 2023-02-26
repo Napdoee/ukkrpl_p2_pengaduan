@@ -24,7 +24,7 @@
                             required>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-book"></span>
+                                <span class="fas fa-address-book"></span>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <input type="number" class="form-control" name="notelp" placeholder="Nomor Ponsel" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-book"></span>
+                                <span class="fa fa-phone"></span>
                             </div>
                         </div>
                     </div>

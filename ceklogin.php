@@ -16,7 +16,7 @@ if(isset($_POST['submit']))
         $data = $db->userDetail($check, $user, $pass);
 
         $db->setSession($data['nama_petugas'], $data['id_petugas'], $data['level'], true);
-        header("location: petugas/");
+        header("location: petugas/?page=dashboard");
     } else if($check == 'masyarakat'){
         $data = $db->userDetail($check, $user, $pass);
 

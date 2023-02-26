@@ -27,7 +27,7 @@
         
         if($query){
             unlink("../assets/image/".$data['foto']);
-            header("location: index.php?page=home");
+            header("location: index.php?page=pengaduan");
         }
     }
 ?>

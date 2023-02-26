@@ -20,26 +20,33 @@
                 <a href="#" class="navbar-brand">
                     <span class="brand-text font-weight-light"><b>Pengaduan Masyarakat</b></span>
                 </a>
-                <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                    <?php if(!isset($_SESSION['status'])) :?>
-                    <li class="nav-item">
-                        <a href="register.php" class="nav-link">Daftar Akun</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="login.php" class="nav-link">Login</a>
-                    </li>
-                    <?php else : ?>
-                    <li class="nav-item">
-                        <a href="masyarakat/?page=home" class="nav-link">Daftar Pengaduan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="masyarakat/?page=pengajuan" class="nav-link">Pengaduan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="logout.php" class="nav-link">Logout</a>
-                    </li>
-                    <?php endif; ?>
-                </ul>
+                <button class="navbar-toggler order-1" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                        <?php if(!isset($_SESSION['status'])) :?>
+                        <li class="nav-item">
+                            <a href="register.php" class="nav-link">Daftar Akun</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.php" class="nav-link">Login</a>
+                        </li>
+                        <?php else : ?>
+                        <li class="nav-item">
+                            <a href="masyarakat/?page=home" class="nav-link">Daftar Pengaduan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="masyarakat/?page=pengajuan" class="nav-link">Pengaduan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="logout.php" class="nav-link">Logout</a>
+                        </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
             </div>
         </nav>
         <div class="content-wrapper">
@@ -53,7 +60,7 @@
             <div class="content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-12 col-md-8">
                             <div class="card card-primary card-outline">
                                 <div class="card-header">
                                     <h5 class="card-title m-0">Mengajukan Laporan Pengaduan</h5>
@@ -72,7 +79,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12 col-md-4">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Cara mengajukan laporan pengaduan: </h5>

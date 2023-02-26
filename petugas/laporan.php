@@ -5,9 +5,9 @@
                 <i class="fas fa-print"></i>
                 Cetak
             </button>
-            <a class="btn btn-default" href="?page=home">
+            <a class="btn btn-default" href="?page=pengaduan">
                 <i class="fas fa-arrow-left"></i>
-                Home
+                Data Pengaduan
             </a>
         </div>
     </div>

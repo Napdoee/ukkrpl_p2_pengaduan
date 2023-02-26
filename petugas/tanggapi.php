@@ -14,7 +14,7 @@
 
         $query = $db->tanggapan($id_pengaduan, $petugas, $tanggapan);
         if($query){
-            $db->alertMsg("Berhasil menanggapi laporan!", "?page=home");
+            $db->alertMsg("Berhasil menanggapi laporan!", "?page=pengaduan");
         } 
     }
 ?>
@@ -27,7 +27,7 @@
                 <a href="?page=detail&id=<?= $_GET['id'] ?>" class="btn btn-outline-primary mt-2">
                     Lihat Detail</a>
             </h1>
-            <a href="?page=home" class="btn btn-outline-primary">
+            <a href="?page=pengaduan" class="btn btn-outline-primary">
                 <i class="fas fa-arrow-left"></i> Kembali
             </a>
         </div>

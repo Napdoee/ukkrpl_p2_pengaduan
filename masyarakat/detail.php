@@ -10,11 +10,11 @@
 ?>
 <div class="content-header">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-start">
-            <h4 class="m-0">
+        <div class="row">
+            <h4 class="col-12 col-md-6 mb-2 mb-md-0 m-0">
                 Detail Pengaduan
             </h4>
-            <div class="d-flex">
+            <div class="col-12 col-md-6 d-flex align-items-end">
                 <?php if($user['nik'] == $_SESSION['userId']) : ?>
                 <form action="delete.php" method="POST">
                     <input type="hidden" name="id_pengaduan" value="<?= $data['id_pengaduan'] ?>">
@@ -32,7 +32,7 @@
 <div class="content">
     <div class="container">
         <div class="row">
-            <div class="col-6">
+            <div class="order-2 order-md-1 col-12 col-md-6">
                 <div class="card card-primary">
                     <div class="card-header">
                         <div class="card-title">Detail Pengaduan</div>
@@ -97,7 +97,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6 text-center">
+            <div class="order-1 mb-2 col-12 col-md-6 text-center">
                 <div style="max-height: 500px;" class="overflow-auto">
                     <img style="width: 100%;" class="img-fluid img-rounded shadow-sm"
                         src="../assets/image/<?= $data['foto'] ?>" alt="<?= $data['foto'] ?>">

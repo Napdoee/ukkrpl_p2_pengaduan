@@ -8,27 +8,27 @@
 
     if(isset($_POST['pending'])){
         $db->setStatus($_GET['id'], '0');
-        echo "<script>window.location='?page=home'</script>";
+        echo "<script>window.location='?page=pengaduan'</script>";
     } 
     else if(isset($_POST['proses'])){
         $db->setStatus($_GET['id'], 'proses');
-        echo "<script>window.location='?page=home'</script>";
+        echo "<script>window.location='?page=pengaduan'</script>";
     } 
     else if(isset($_POST['selesai'])){
         $db->setStatus($_GET['id'], 'selesai');
-        echo "<script>window.location='?page=home'</script>";
+        echo "<script>window.location='?page=pengaduan'</script>";
     } 
 ?>
 <div class="content-header">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-start">
-            <h4 class="m-0">
+        <div class="row align-items-center">
+            <h4 class="col-12 col-md-6 mb-2 mb-md-0 m-0">
                 Detail Pengaduan
             </h4>
-            <div>
+            <div class="col-12 col-md-6 d-flex justify-content-md-end">
                 <!-- <div class="btn-group"> -->
                 <?php if($_SESSION['level'] == 'admin') : ?>
-                <form action="delete.php" method="POST" class="d-inline">
+                <form action="delete.php" method="POST" class="d-inline mx-1">
                     <input type="hidden" name="id_pengaduan" value="<?= $data['id_pengaduan'] ?>">
                     <button onclick="return confirm('Apakah anda yakin ingin menghapus pengaduan ini?')" type="submit"
                         name="pengaduan" class="btn btn-outline-danger">
@@ -36,11 +36,11 @@
                     </button>
                 </form>
                 <?php endif; ?>
-                <a href="?page=tanggapi&id=<?= $data['id_pengaduan'] ?>" class="btn btn-outline-success">
+                <a href="?page=tanggapi&id=<?= $data['id_pengaduan'] ?>" class="btn btn-outline-success mx-1">
                     <i class="fas fa-edit"></i> Tanggapi
                 </a>
                 <!-- </div> -->
-                <a href="?page=home" class="btn btn-outline-primary">
+                <a href="?page=pengaduan" class="btn btn-outline-primary mx-1">
                     <i class="fas fa-arrow-left"></i> Kembali
                 </a>
             </div>
@@ -50,7 +50,7 @@
 <div class="content">
     <div class="container">
         <div class="row">
-            <div class="col-6">
+            <div class="order-2 order-md-1 col-12 col-md-6">
                 <div class="card card-lightblue">
                     <div class="card-header">
                         <div class="card-title">Detail Pengaduan</div>
@@ -117,7 +117,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6 text-center">
+            <div class="order-1 mb-2 mb-md-0 col-12 col-md-6 text-center">
                 <?php if($_SESSION['level'] == 'admin') : ?>
                 <div class="card card-lightblue">
                     <div class="card-header">
