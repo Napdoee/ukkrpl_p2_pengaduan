@@ -8,8 +8,8 @@
     <title>APP Pengaduan Masyarakat</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition layout-top-nav">
@@ -27,7 +27,7 @@
                 </button>
                 <div class="collapse navbar-collapse order-3" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto">
-                        <?php if(!isset($_SESSION['status'])) :?>
+                        <?php if (!isset($_SESSION['status'])) : ?>
                         <li class="nav-item">
                             <a href="register.php" class="nav-link">Daftar Akun</a>
                         </li>
@@ -53,7 +53,7 @@
             <div class="content-header">
                 <div class="container">
                     <h1>Selamat datang
-                        <?= isset($_SESSION['username'] ) ? $_SESSION['username'] : 'di aplikasi Pengaduan Masyarakat' ?>
+                        <?= isset($_SESSION['username']) ? $_SESSION['username'] : 'di aplikasi Pengaduan Masyarakat' ?>
                     </h1>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                                         akun sebagai masyarakat dan ikuti cara mengajukan laporan pengaduan nantinya
                                         kalian dapat melihat daftar pengaduan.
                                     </p>
-                                    <?php if(!isset($_SESSION['status'])) : ?>
+                                    <?php if (!isset($_SESSION['status'])) : ?>
                                     <p>Jika tidak memiliki akun segera daftarkan dibawah ini.</p>
                                     <a href="register.php" class="btn btn-primary">Daftarkan akun masyarakat</a>
                                     <?php endif; ?>
@@ -99,8 +99,8 @@
             </div>
         </div>
     </div>
-    <script src="assets/plugins/jquery/jquery.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../AdminLTE/plugins/jquery/jquery.min.js"></script>
+    <script src="../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

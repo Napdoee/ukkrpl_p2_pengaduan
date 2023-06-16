@@ -1,15 +1,15 @@
-<?php 
-    session_start(); 
-    include "../database.php";
-    $db = new Database();
+<?php
+session_start();
+include "../database.php";
+$db = new Database();
 
-    if(!isset($_SESSION['status'])){
-        return header("location: ../index.php");
-    }
+if (!isset($_SESSION['status'])) {
+    return header("location: ../index.php");
+}
 
-    if($_SESSION['level'] != 'petugas' && $_SESSION['level'] != 'admin'){
-        return $db->alertMsg("Anda harus masuk sebagai petugas untuk mengakses halaman!", '../logout.php');
-     }
+if ($_SESSION['level'] != 'petugas' && $_SESSION['level'] != 'admin') {
+    return $db->alertMsg("Anda harus masuk sebagai petugas untuk mengakses halaman!", '../logout.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +24,13 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../AdminLTE/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../AdminLTE/dist/css/adminlte.min.css">
     <!-- DataTables -->
-    <link rel="stylesheet" href="../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="../assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
-    <link rel="stylesheet" href="../assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../../AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../../AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../../AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -64,7 +64,8 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="../../AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                            alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><b><?= $_SESSION['username'] ?></b></a>
@@ -93,12 +94,12 @@
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     Verifikasi Pengaduan
-                                    <?= ($db->jmlPengaduan() > 0 ? 
-                                    '<span class="right badge badge-danger">'.$db->jmlPengaduan().'</span>' : "") ?>
+                                    <?= ($db->jmlPengaduan() > 0 ?
+                                        '<span class="right badge badge-danger">' . $db->jmlPengaduan() . '</span>' : "") ?>
                                 </p>
                             </a>
                         </li>
-                        <?php if($_SESSION['level'] == 'admin') : ?>
+                        <?php if ($_SESSION['level'] == 'admin') : ?>
                         <li class="nav-item collapsed">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -163,18 +164,18 @@
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <script src="../../AdminLTE/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- ChartJS -->
-    <script src="../assets/plugins/chart.js/Chart.min.js"></script>
+    <script src="../../AdminLTE/plugins/chart.js/Chart.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="../assets/dist/js/adminlte.min.js"></script>
+    <script src="../../AdminLTE/dist/js/adminlte.min.js"></script>
     <!-- DataTables  & Plugins -->
-    <script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="../../AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <script>
     $(function() {
         $("#example2").DataTable({
@@ -198,7 +199,9 @@
     <?php $data = $db->query("SELECT tgl_pengaduan as TglPengaduan, COUNT(*) as JmlPengaduan FROM `pengaduan` GROUP BY tgl_pengaduan;") ?>
 
     var areaChartData = {
-        labels: [<?php foreach($data as $x) { echo '"'.$x['TglPengaduan'].'", '; } ?>],
+        labels: [<?php foreach ($data as $x) {
+                            echo '"' . $x['TglPengaduan'] . '", ';
+                        } ?>],
         datasets: [{
             label: 'Data Pengaduan',
             backgroundColor: 'rgba(60,141,188,0.9)',
@@ -208,7 +211,9 @@
             pointStrokeColor: 'rgba(60,141,188,1)',
             pointHighlightFill: '#fff',
             pointHighlightStroke: 'rgba(60,141,188,1)',
-            data: [<?php foreach($data as $x) { echo '"'.$x['JmlPengaduan'].'", '; } ?>]
+            data: [<?php foreach ($data as $x) {
+                            echo '"' . $x['JmlPengaduan'] . '", ';
+                        } ?>]
         }, ]
     }
 

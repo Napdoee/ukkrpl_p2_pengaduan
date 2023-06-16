@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Feb 2023 pada 06.32
--- Versi server: 10.4.25-MariaDB
--- Versi PHP: 8.1.10
+-- Generation Time: Jun 16, 2023 at 04:44 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 
 DELIMITER $$
 --
--- Prosedur
+-- Procedures
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `pengaduan` (IN `uNik` VARCHAR(255), IN `uJudul` VARCHAR(255), IN `uIsi` TEXT, IN `uFoto` VARCHAR(255))   BEGIN
 	INSERT INTO pengaduan(nik, judul_laporan, isi_laporan, foto)
@@ -41,7 +41,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `tanggapan` (IN `uIdPengaduan` INT, 
 END$$
 
 --
--- Fungsi
+-- Functions
 --
 CREATE DEFINER=`root`@`localhost` FUNCTION `jmlPengaduan` () RETURNS INT(11)  BEGIN
 	DECLARE hasil int(11);
@@ -54,7 +54,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `masyarakat`
+-- Table structure for table `masyarakat`
 --
 
 CREATE TABLE `masyarakat` (
@@ -63,20 +63,20 @@ CREATE TABLE `masyarakat` (
   `username` varchar(25) NOT NULL,
   `password` varchar(32) NOT NULL,
   `telp` varchar(13) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `masyarakat`
+-- Dumping data for table `masyarakat`
 --
 
 INSERT INTO `masyarakat` (`nik`, `nama`, `username`, `password`, `telp`) VALUES
-('1815175101721511', 'wiwi', 'wiwi', '38f2f8bb5145c0b899542570b91153f6', '62850180185'),
-('8157519275018275', 'Hidayat', 'dayat', '1855c11f044cc8944e8cdac9cae5def8', '082189575000');
+('1815175101721511', 'Widya', 'wiwi', '38f2f8bb5145c0b899542570b91153f6', '62850180185'),
+('8157519275018275', 'Hidayat', 'dayat', '1855c11f044cc8944e8cdac9cae5def8', '0824180412');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengaduan`
+-- Table structure for table `pengaduan`
 --
 
 CREATE TABLE `pengaduan` (
@@ -87,10 +87,10 @@ CREATE TABLE `pengaduan` (
   `isi_laporan` text NOT NULL,
   `foto` varchar(255) NOT NULL,
   `status` enum('0','proses','selesai') NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `pengaduan`
+-- Dumping data for table `pengaduan`
 --
 
 INSERT INTO `pengaduan` (`id_pengaduan`, `tgl_pengaduan`, `nik`, `judul_laporan`, `isi_laporan`, `foto`, `status`) VALUES
@@ -100,7 +100,7 @@ INSERT INTO `pengaduan` (`id_pengaduan`, `tgl_pengaduan`, `nik`, `judul_laporan`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `petugas`
+-- Table structure for table `petugas`
 --
 
 CREATE TABLE `petugas` (
@@ -110,10 +110,10 @@ CREATE TABLE `petugas` (
   `password` varchar(32) NOT NULL,
   `telp` varchar(13) NOT NULL,
   `level` enum('petugas','admin') NOT NULL DEFAULT 'petugas'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `petugas`
+-- Dumping data for table `petugas`
 --
 
 INSERT INTO `petugas` (`id_petugas`, `nama_petugas`, `username`, `password`, `telp`, `level`) VALUES
@@ -123,7 +123,7 @@ INSERT INTO `petugas` (`id_petugas`, `nama_petugas`, `username`, `password`, `te
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tanggapan`
+-- Table structure for table `tanggapan`
 --
 
 CREATE TABLE `tanggapan` (
@@ -132,10 +132,10 @@ CREATE TABLE `tanggapan` (
   `tgl_tanggapan` date NOT NULL DEFAULT current_timestamp(),
   `tanggapan` text NOT NULL,
   `id_petugas` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tanggapan`
+-- Dumping data for table `tanggapan`
 --
 
 INSERT INTO `tanggapan` (`id_tanggapan`, `id_pengaduan`, `tgl_tanggapan`, `tanggapan`, `id_petugas`) VALUES
@@ -148,26 +148,26 @@ INSERT INTO `tanggapan` (`id_tanggapan`, `id_pengaduan`, `tgl_tanggapan`, `tangg
 --
 
 --
--- Indeks untuk tabel `masyarakat`
+-- Indexes for table `masyarakat`
 --
 ALTER TABLE `masyarakat`
   ADD PRIMARY KEY (`nik`);
 
 --
--- Indeks untuk tabel `pengaduan`
+-- Indexes for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
   ADD PRIMARY KEY (`id_pengaduan`),
   ADD KEY `nik` (`nik`);
 
 --
--- Indeks untuk tabel `petugas`
+-- Indexes for table `petugas`
 --
 ALTER TABLE `petugas`
   ADD PRIMARY KEY (`id_petugas`);
 
 --
--- Indeks untuk tabel `tanggapan`
+-- Indexes for table `tanggapan`
 --
 ALTER TABLE `tanggapan`
   ADD PRIMARY KEY (`id_tanggapan`),
@@ -175,39 +175,39 @@ ALTER TABLE `tanggapan`
   ADD KEY `id_petugas` (`id_petugas`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `pengaduan`
+-- AUTO_INCREMENT for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
   MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT untuk tabel `petugas`
+-- AUTO_INCREMENT for table `petugas`
 --
 ALTER TABLE `petugas`
   MODIFY `id_petugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `tanggapan`
+-- AUTO_INCREMENT for table `tanggapan`
 --
 ALTER TABLE `tanggapan`
   MODIFY `id_tanggapan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `pengaduan`
+-- Constraints for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
   ADD CONSTRAINT `pengaduan_ibfk_1` FOREIGN KEY (`nik`) REFERENCES `masyarakat` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tanggapan`
+-- Constraints for table `tanggapan`
 --
 ALTER TABLE `tanggapan`
   ADD CONSTRAINT `tanggapan_ibfk_1` FOREIGN KEY (`id_pengaduan`) REFERENCES `pengaduan` (`id_pengaduan`) ON DELETE CASCADE ON UPDATE CASCADE,

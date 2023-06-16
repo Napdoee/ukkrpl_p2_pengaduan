@@ -1,15 +1,15 @@
-<?php 
-    session_start(); 
-    include "../database.php";
-    $db = new Database();
+<?php
+session_start();
+include "../database.php";
+$db = new Database();
 
-    if(!isset($_SESSION['status'])){
-        return header("location: ../index.php");
-    }
+if (!isset($_SESSION['status'])) {
+    return header("location: ../index.php");
+}
 
-    if($_SESSION['level'] != 'masyarakat'){
-       return $db->alertMsg("Anda harus masuk sebagai masyarakat untuk mengakses halaman!", '../logout.php');
-    }
+if ($_SESSION['level'] != 'masyarakat') {
+    return $db->alertMsg("Anda harus masuk sebagai masyarakat untuk mengakses halaman!", '../logout.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,14 +20,14 @@
     <title>APP Pengaduan Masyarakat</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../AdminLTE/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../AdminLTE/dist/css/adminlte.min.css">
     <!-- summernote -->
-    <link rel="stylesheet" href="../assets/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="../../AdminLTE/plugins/summernote/summernote-bs4.min.css">
     <!-- DataTables -->
-    <link rel="stylesheet" href="../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="../assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
-    <link rel="stylesheet" href="../assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../../AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../../AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../../AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
 </head>
 
 <body class="hold-transition layout-top-nav">
@@ -68,20 +68,20 @@
 
     <!-- REQUIRED SCRIPTS -->
 
-    <script src="../assets/script.js"></script>
+    <script src="../../AdminLTE/script.js"></script>
     <!-- jQuery -->
-    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <script src="../../AdminLTE/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="../assets/dist/js/adminlte.min.js"></script>
+    <script src="../../AdminLTE/dist/js/adminlte.min.js"></script>
     <!-- Summernote -->
-    <script src="../assets/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="../../AdminLTE/plugins/summernote/summernote-bs4.min.js"></script>
     <!-- DataTables  & Plugins -->
-    <script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="../../AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <script>
     $(function() {
         $("#example2").DataTable({
