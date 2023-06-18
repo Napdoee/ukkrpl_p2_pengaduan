@@ -4,7 +4,7 @@
 Ujian Kompentensi RPL Paket 1, Aplikasi Pengaduan Masyarakat
 ## Sistem
 
-Sistem dibangun menggunakan PHP berbasis berorentiasi objek dengan menggunakan database MySQL
+Aplikasi Pengaduan Masyarakat dengan sistem CRUD memungkinkan masyarakat untuk mengajukan, melihat, memperbarui, dan menghapus pengaduan mereka. Aplikasi ini dirancang untuk memberikan wadah bagi masyarakat untuk melaporkan masalah, keluhan, atau permintaan kepada pihak yang berwenang. Pengguna dapat membuat pengaduan dengan mengisi informasi seperti deskripsi masalah, lokasi, dan kategori terkait. Masyarakat juga dapat melihat pengaduan mereka, serta menghapus pengaduan jika sudah selesai atau tidak relevan lagi. Sistem CRUD membantu dalam pemrosesan pengaduan dengan efisien dan memungkinkan pembaruan serta penghapusan yang diperlukan.
 ## Instalasi 
 #### 1. Mengaplikasikan Database
 - Mencari file *SQL* database
